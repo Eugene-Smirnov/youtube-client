@@ -8,17 +8,9 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { SearchItemComponent } from './search-item/search-item.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SearchResultsComponent,
-    SearchItemComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, HeaderComponent, SearchResultsComponent, SearchItemComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
