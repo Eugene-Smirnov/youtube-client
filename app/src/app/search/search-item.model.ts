@@ -16,8 +16,9 @@ export interface SearchItemModel {
     };
     channelTitle: string;
     tags: string[];
-    categoryId: number;
+    categoryId: number | string;
     liveBroadcastContent: string;
+    defaultLanguage?: string;
     localized: {
       title: string;
       description: string;
@@ -25,16 +26,16 @@ export interface SearchItemModel {
     defaultAudioLanguage: string;
   };
   statistics: {
-    viewCount: number;
-    likeCount: number;
-    dislikeCount: number;
-    favoriteCount: number;
-    commentCount: number;
+    viewCount: number | string;
+    likeCount: number | string;
+    dislikeCount: number | string;
+    favoriteCount: number | string;
+    commentCount: number | string;
   };
 }
 
 interface ThumbnailModel {
   url: string;
-  width: number;
-  height: number;
+  width: number | string;
+  height: number | string;
 }
