@@ -1,0 +1,19 @@
+.header {
+  &__profile {
+    &-name {
+      font-size: 14px;
+      cursor: default;
+    }
+
+    &-button {
+      display: block;
+      height: 26px;
+      width: 26px;
+      padding: 0;
+      margin-left: 10px;
+      background-image: url(../../../assets/profile.png);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}

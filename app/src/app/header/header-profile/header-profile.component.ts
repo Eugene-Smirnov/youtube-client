@@ -6,5 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-profile.component.scss'],
 })
 export class HeaderProfileComponent implements OnInit {
+  profileName = 'Your Name';
+
   ngOnInit(): void {}
 }
