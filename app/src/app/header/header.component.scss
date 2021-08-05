@@ -1,0 +1,32 @@
+.header {
+  &__wrapper {
+    margin: 0 10%;
+  }
+
+  &__top-bar {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__bottom-bar {
+    height: 50px;
+    width: 100%;
+    display: flex;
+  }
+}
+
+app-header-search-bar {
+  display: flex;
+  align-items: center;
+}
+
+app-header-profile {
+  display: block;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
