@@ -1,8 +1,6 @@
-<div class="search-results__wrapper">
-  <div class="search-results">
-    <app-search-item
-      *ngFor="let searchItem of searchResponse"
-      [searchItem]="searchItem"
-    ></app-search-item>
-  </div>
+<div class="search-results">
+  <app-search-item
+    *ngFor="let searchItem of searchResponse"
+    [searchItem]="searchItem"
+  ></app-search-item>
 </div>

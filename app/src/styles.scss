@@ -9,8 +9,14 @@
   --dark-grey-color: rgb(var(--dark-grey-color-data));
   --light-grey-color-data: 239, 239, 239;
   --light-grey-color: rgb(var(--light-grey-color-data));
+  --red-color-data: 235, 87, 87;
+  --red-color: rgb(var(--red-color-data));
+  --green-color-data: 39, 174, 96;
+  --green-color: rgb(var(--green-color-data));
   --blue-color-data: 47, 128, 237;
   --blue-color: rgb(var(--blue-color-data));
+  --yellow-color-data: 235, 220, 87;
+  --yellow-color: rgb(var(--yellow-color-data));
 }
 
 body {
@@ -24,6 +30,7 @@ app-root {
 
 .button {
   padding: 5px;
+  color: var(--white-color);
   background-color: var(--blue-color);
   outline: none;
   border: none;
