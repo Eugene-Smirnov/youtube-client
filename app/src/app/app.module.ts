@@ -8,6 +8,7 @@ import { SearchResultsComponent } from './search/search-results/search-results.c
 import { SearchItemComponent } from './search/search-item/search-item.component';
 import { HeaderSearchBarComponent } from './header/header-search-bar/header-search-bar.component';
 import { HeaderProfileComponent } from './header/header-profile/header-profile.component';
+import { HeaderSearchParamsComponent } from './header/header-search-params/header-search-params.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HeaderProfileComponent } from './header/header-profile/header-profile.c
     SearchItemComponent,
     HeaderSearchBarComponent,
     HeaderProfileComponent,
+    HeaderSearchParamsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

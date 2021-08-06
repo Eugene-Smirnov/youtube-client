@@ -3,7 +3,8 @@
     margin: 0 10%;
   }
 
-  &__top-bar {
+  &__top-bar,
+  &__bottom-bar {
     height: 80px;
     width: 100%;
     display: flex;
@@ -14,14 +15,14 @@
 
   &__bottom-bar {
     height: 50px;
-    width: 100%;
-    display: flex;
   }
 }
 
-app-header-search-bar {
+app-header-search-bar,
+app-header-search-params {
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 app-header-profile {

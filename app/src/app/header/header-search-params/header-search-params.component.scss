@@ -1,0 +1,31 @@
+.search-params {
+  &__heading {
+    color: var(--dark-grey-color);
+  }
+
+  &__ul {
+    display: flex;
+    list-style: none;
+    margin-block: 0;
+    padding-inline: 0;
+  }
+
+  &__li {
+    margin-left: 10px;
+    color: var(--blue-color);
+    border-bottom: 1px solid var(--blue-color);
+    cursor: pointer;
+  }
+
+  &__li:last-child {
+    border-bottom: none;
+    cursor: default;
+  }
+}
+
+#search-params__text-input {
+  margin-left: 10px;
+  outline: none;
+  border: none;
+  border-radius: 0;
+}
