@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header-search-bar',
@@ -6,5 +6,13 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header-search-bar.component.scss'],
 })
 export class HeaderSearchBarComponent {
+  @Input() isSearchSettingsOpened: boolean = false;
+
   @Output() search = new EventEmitter<string>();
+
+  @Output() toggleSettingsBar = new EventEmitter();
+
+  onSettingsButtonClick(): void {
+    this.toggleSettingsBar.emit();
+  }
 }

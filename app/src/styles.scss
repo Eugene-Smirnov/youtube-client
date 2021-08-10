@@ -40,14 +40,14 @@ app-root {
   transition: box-shadow ease-in-out 0.2s;
 
   &:hover {
-    box-shadow: 0 0 5px rgba(var(--blue-color-data), 0.5);
+    box-shadow: 0 0 5px rgba(var(--blue-color-data), 0.8);
   }
 
   &:active {
-    box-shadow: 0 0 5px rgba(var(--blue-color-data), 0.8);
+    box-shadow: 0 0 5px rgba(var(--dark-color-data), 1);
   }
 
   &_active {
-    box-shadow: 0 0 5px rgba(var(--blue-color-data), 0.8);
+    box-shadow: 0 0 5px rgba(var(--blue-color-data), 1);
   }
 }

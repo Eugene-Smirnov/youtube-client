@@ -5,4 +5,8 @@
   <input type="text" class="header__search-input" #input />
   <button class="button header__search-submit" (click)="search.emit(input.value)">search</button>
 </div>
-<button class="button header__search-settings"></button>
+<button
+  class="button header__search-settings"
+  [class.button_active]="isSearchSettingsOpened"
+  (click)="onSettingsButtonClick()"
+></button>

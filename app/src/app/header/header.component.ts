@@ -7,10 +7,16 @@ import { SearchService } from '../services/search.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  isSearchSettingsOpened = false;
+
   constructor(private searchService: SearchService) {}
 
   onSearch(value: string): void {
     this.searchService.searchItems(!!value);
     // TODO: search with valid attributes
+  }
+
+  onToggleSettingsBar() {
+    this.isSearchSettingsOpened = !this.isSearchSettingsOpened;
   }
 }
