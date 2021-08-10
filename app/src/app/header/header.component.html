@@ -1,6 +1,6 @@
 <header class="header__wrapper">
   <div class="header__top-bar">
-    <app-header-search-bar></app-header-search-bar>
+    <app-header-search-bar (search)="onSearch($event)"></app-header-search-bar>
     <app-header-profile></app-header-profile>
   </div>
   <div class="header__bottom-bar">

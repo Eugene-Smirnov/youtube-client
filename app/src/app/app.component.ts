@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { searchResponse as response } from './search/search-results/search-response';
+import { SearchItemModel } from './search/search-item.model';
+import { SearchService } from './services/search.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,13 @@ import { searchResponse as response } from './search/search-results/search-respo
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  searchResponse = response.items;
+  public searchResponse: SearchItemModel[] = [];
+
+  constructor(private searchService: SearchService) {
+    this.searchService.items$.subscribe((items) => {
+      this.searchResponse = [...items];
+    });
+  }
 
   title = 'app';
 }
