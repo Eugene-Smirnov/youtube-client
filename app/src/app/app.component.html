@@ -1,4 +1,7 @@
 <app-header></app-header>
 <main class="main">
-  <app-search-results [searchResponse]="searchResponse" *ngIf="searchResponse"></app-search-results>
+  <app-search-results
+    [searchResponse]="searchResponse | SearchFilterPipe: filterValue | SearchSortPipe: searchParams"
+    *ngIf="searchResponse"
+  ></app-search-results>
 </main>

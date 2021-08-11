@@ -10,6 +10,9 @@ import { HeaderSearchBarComponent } from './header/header-search-bar/header-sear
 import { HeaderProfileComponent } from './header/header-profile/header-profile.component';
 import { HeaderSearchParamsComponent } from './header/header-search-params/header-search-params.component';
 
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { SearchSortPipe } from './pipes/search-sort.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +22,8 @@ import { HeaderSearchParamsComponent } from './header/header-search-params/heade
     HeaderSearchBarComponent,
     HeaderProfileComponent,
     HeaderSearchParamsComponent,
+    SearchFilterPipe,
+    SearchSortPipe,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header-search-params',
   templateUrl: './header-search-params.component.html',
-  styleUrls: ['./header-search-params.component.scss']
+  styleUrls: ['./header-search-params.component.scss'],
 })
-export class HeaderSearchParamsComponent implements OnInit {
+export class HeaderSearchParamsComponent {
+  @Input() isDesc = true;
 
-  constructor() { }
+  @Input() searchByDate = false;
 
-  ngOnInit(): void {
-  }
+  @Input() searchByViews = false;
 
+  @Output() searchFilterChange = new EventEmitter<string>();
+
+  @Output() byDateClick = new EventEmitter();
+
+  @Output() byViewsClick = new EventEmitter();
 }

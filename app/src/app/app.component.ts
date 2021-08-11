@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { SearchParamsModel } from './models/search-params.model';
 import { SearchItemModel } from './search/search-item.model';
+import { SearchSettingsService } from './services/search-settings.service';
 import { SearchService } from './services/search.service';
 
 @Component({
@@ -10,9 +12,23 @@ import { SearchService } from './services/search.service';
 export class AppComponent {
   public searchResponse: SearchItemModel[] = [];
 
-  constructor(private searchService: SearchService) {
+  searchParams: SearchParamsModel = {
+    sortBy: '',
+    isDesc: true,
+  };
+
+  filterValue = '';
+
+  constructor(
+    private searchService: SearchService,
+    private searchSettingsService: SearchSettingsService,
+  ) {
     this.searchService.items$.subscribe((items) => {
       this.searchResponse = [...items];
+    });
+    this.searchSettingsService.settings$.subscribe((settings) => {
+      this.searchParams = settings.searchParams;
+      this.filterValue = settings.filterValue;
     });
   }
 

@@ -1,6 +1,7 @@
 .search-params {
   &__heading {
     color: var(--dark-grey-color);
+    cursor: default;
   }
 
   &__ul {
@@ -11,10 +12,31 @@
   }
 
   &__li {
+    --arrow: '';
     margin-left: 10px;
     color: var(--blue-color);
-    border-bottom: 1px solid var(--blue-color);
     cursor: pointer;
+
+    border-bottom: 1px solid rgba(var(--blue-color-data), 0);
+
+    transition: all ease-in-out 0.2s;
+
+    &:hover:not(:last-child) {
+      color: var(--dark-blue-color);
+      border-bottom: 1px solid var(--dark-blue-color);
+    }
+
+    &_active:not(:last-child) {
+      --arrow: '🠕';
+      border-bottom: 1px solid var(--blue-color);
+      &::after {
+        content: var(--arrow);
+      }
+    }
+
+    &_desc:not(:last-child) {
+      --arrow: '🠗';
+    }
   }
 
   &__li:last-child {
