@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { SearchParamsModel } from './models/search-params.model';
-import { SearchItemModel } from './search/search-item.model';
-import { SearchSettingsService } from './services/search-settings.service';
-import { SearchService } from './services/search.service';
+import { SearchParamsModel } from './core/models/search-params.model';
+import { SearchItemModel } from './youtube/models/search-item.model';
+import { SearchSettingsService } from './core/services/search-settings.service';
+import { SearchService } from './youtube/services/search.service';
 
 @Component({
   selector: 'app-root',

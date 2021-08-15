@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SearchItemModel } from '../search-item.model';
+import { SearchItemModel } from '../../../models/search-item.model';
 
 const PUB_LESS_WEEK_CLASS = 'search-item__time-bar_week';
 const PUB_LESS_MONTH_CLASS = 'search-item__time-bar_month';

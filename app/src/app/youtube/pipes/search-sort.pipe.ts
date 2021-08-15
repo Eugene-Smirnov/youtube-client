@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SearchParamsModel } from '../models/search-params.model';
-import { SearchItemModel } from '../search/search-item.model';
+import { SearchParamsModel } from '../../core/models/search-params.model';
+import { SearchItemModel } from '../models/search-item.model';
 
 @Pipe({
   name: 'SearchSortPipe',

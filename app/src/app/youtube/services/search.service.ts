@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SearchItemModel } from '../search/search-item.model';
-import { searchResponse as response } from '../search/search-results/search-response';
+import { SearchItemModel } from '../models/search-item.model';
+import { searchResponse as response } from '../search-response';
 
 @Injectable({
   providedIn: 'root',

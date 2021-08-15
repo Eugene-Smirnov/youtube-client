@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SearchSettingsService } from '../services/search-settings.service';
-import { SearchService } from '../services/search.service';
+import { SearchSettingsService } from '../../services/search-settings.service';
+import { SearchService } from '../../../youtube/services/search.service';
 
 @Component({
   selector: 'app-header',
