@@ -32,6 +32,10 @@ app-root {
   display: block;
 }
 
+.main {
+  margin: 0 10%;
+}
+
 .button {
   padding: 5px;
   color: var(--white-color);
@@ -54,4 +58,9 @@ app-root {
   &_active {
     box-shadow: 0 0 5px rgba(var(--blue-color-data), 1);
   }
+}
+
+.heading {
+  color: var(--dark-color);
+  font-size: 18px;
 }
