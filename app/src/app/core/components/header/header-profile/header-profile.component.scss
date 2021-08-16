@@ -1,8 +1,13 @@
 .header {
   &__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
     &-name {
       font-size: 14px;
       cursor: default;
+      margin: 0;
     }
 
     &-button {
@@ -14,6 +19,29 @@
       background-image: url(../../../../../assets/profile.png);
       background-position: center;
       background-repeat: no-repeat;
+    }
+  }
+
+  &__logout-button {
+    padding: 0;
+    box-sizing: border-box;
+
+    display: block;
+
+    background: none;
+
+    color: var(--dark-grey-color);
+    font-size: 12px;
+
+    outline: none;
+    border: none;
+    border-bottom: 1px solid transparent;
+
+    transition: border 0.1s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: 1px solid var(--dark-grey-color);
     }
   }
 }

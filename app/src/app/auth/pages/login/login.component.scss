@@ -19,6 +19,19 @@
     text-transform: capitalize;
   }
 
+  &__info {
+    margin: 0 0 15px 0;
+    padding: 5px;
+
+    font-size: 12px;
+    font-weight: normal;
+    color: var(--dark-grey-color);
+
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(var(--red-color-data), 0.4);
+    border-radius: 5px;
+  }
+
   &__input-label {
     margin-bottom: 5px;
     font-size: 10px;
@@ -36,6 +49,14 @@
 
     outline: none;
     border: none;
+
+    &_filled {
+      background-color: rgba(var(--red-color-data), 0.2);
+    }
+
+    &_valid {
+      background-color: rgba(var(--green-color-data), 0.2);
+    }
   }
 
   &__button {

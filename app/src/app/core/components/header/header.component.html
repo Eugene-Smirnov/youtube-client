@@ -5,7 +5,11 @@
       (search)="onSearch()"
       (toggleSettingsBar)="onToggleSettingsBar()"
     ></app-header-search-bar>
-    <app-header-profile></app-header-profile>
+    <app-header-profile
+      [profileName]="profileName"
+      [isAuthorized]="isAuthorized"
+      (logoutClick)="onLogoutClick()"
+    ></app-header-profile>
   </div>
   <div class="header__bottom-bar" *ngIf="isSearchSettingsOpened">
     <app-header-search-params

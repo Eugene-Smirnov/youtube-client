@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { Router } from '@angular/router';
 import { SearchSettingsService } from '../../services/search-settings.service';
 import { SearchService } from '../../../youtube/services/search.service';
 
@@ -8,6 +10,10 @@ import { SearchService } from '../../../youtube/services/search.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  profileName = 'Your Name';
+
+  isAuthorized = false;
+
   isSearchSettingsOpened = false;
 
   filterValue = '';
@@ -21,6 +27,8 @@ export class HeaderComponent {
   constructor(
     private searchService: SearchService,
     private searchSettingsService: SearchSettingsService,
+    private authService: AuthService,
+    private router: Router,
   ) {
     this.searchSettingsService.settings$.subscribe((settings) => {
       this.isSearchSettingsOpened = settings.isOpened;
@@ -28,6 +36,11 @@ export class HeaderComponent {
       this.searchByDate = settings.searchParams.sortBy === 'byDate';
       this.searchByViews = settings.searchParams.sortBy === 'byViews';
       this.isDesc = settings.searchParams.isDesc;
+    });
+
+    authService.items$.subscribe((user) => {
+      this.profileName = user.login;
+      this.isAuthorized = user.isAuthorized;
     });
   }
 
@@ -59,5 +72,10 @@ export class HeaderComponent {
       this.searchSettingsService.resetIsDesc();
       this.searchSettingsService.setSortByViews();
     }
+  }
+
+  onLogoutClick() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

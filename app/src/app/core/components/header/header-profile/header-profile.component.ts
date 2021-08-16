@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header-profile',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-profile.component.scss'],
 })
 export class HeaderProfileComponent {
-  profileName = 'Your Name';
+  @Input() profileName = 'Your Name';
+
+  @Input() isAuthorized = false;
+
+  @Output() logoutClick = new EventEmitter();
 }

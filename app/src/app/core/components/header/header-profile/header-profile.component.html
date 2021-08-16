@@ -1,2 +1,7 @@
-<h3 class="header__profile-name">{{ profileName }}</h3>
+<div class="header__profile">
+  <h3 class="header__profile-name">{{ profileName }}</h3>
+  <button *ngIf="isAuthorized" (click)="logoutClick.emit()" class="header__logout-button">
+    log out
+  </button>
+</div>
 <button class="button header__profile-button"></button>
