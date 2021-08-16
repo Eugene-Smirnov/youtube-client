@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SearchItemModel } from '../../../models/search-item.model';
-
-const PUB_LESS_WEEK_CLASS = 'search-item__time-bar_week';
-const PUB_LESS_MONTH_CLASS = 'search-item__time-bar_month';
-const PUB_MORE_HALF_YEAR_CLASS = 'search-item__time-bar_half-year';
+import {
+  PUB_LESS_MONTH_CLASS,
+  PUB_LESS_WEEK_CLASS,
+  PUB_MORE_HALF_YEAR_CLASS,
+} from '../../../shared/variables';
+import { SearchItemModel } from '../../models/search-item.model';
 
 @Component({
   selector: 'app-search-item',

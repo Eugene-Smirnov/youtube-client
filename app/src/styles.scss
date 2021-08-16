@@ -64,3 +64,21 @@ app-root {
   color: var(--dark-color);
   font-size: 18px;
 }
+
+.time-bar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--yellow-color);
+
+  &_week {
+    background-color: var(--blue-color);
+  }
+
+  &_month {
+    background-color: var(--green-color);
+  }
+
+  &_half-year {
+    background-color: var(--red-color);
+  }
+}

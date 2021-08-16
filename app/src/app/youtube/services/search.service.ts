@@ -15,4 +15,8 @@ export class SearchService {
   searchItems(): void {
     this.items.next(response.items);
   }
+
+  getItemById(itemId: string): SearchItemModel | undefined {
+    return response.items.find(({ id }) => id === itemId);
+  }
 }
