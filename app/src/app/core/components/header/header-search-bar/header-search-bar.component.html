@@ -3,7 +3,7 @@
 </div>
 <div class="header__search-form">
   <input type="text" class="header__search-input" #input />
-  <button class="button header__search-submit" (click)="search.emit(input.value)">search</button>
+  <button class="button header__search-submit" (click)="onSearchButton(input.value)">search</button>
 </div>
 <button
   class="button header__search-settings"

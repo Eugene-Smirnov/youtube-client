@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-search-bar',
@@ -12,7 +13,14 @@ export class HeaderSearchBarComponent {
 
   @Output() toggleSettingsBar = new EventEmitter();
 
+  constructor(private router: Router) {}
+
   onSettingsButtonClick(): void {
     this.toggleSettingsBar.emit();
+  }
+
+  onSearchButton(inputValue: string) {
+    this.router.navigate(['/search']);
+    this.search.emit(inputValue);
   }
 }

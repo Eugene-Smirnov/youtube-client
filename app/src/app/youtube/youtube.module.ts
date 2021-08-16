@@ -5,6 +5,7 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { SearchSortPipe } from './pipes/search-sort.pipe';
 import { DetailsPageComponent } from './pages/details-page/details-page.component';
+import { YoutubeRoutingModule } from './youtube-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,6 @@ import { DetailsPageComponent } from './pages/details-page/details-page.componen
     SearchSortPipe,
     DetailsPageComponent,
   ],
-  imports: [CommonModule],
-  exports: [SearchResultsComponent],
+  imports: [CommonModule, YoutubeRoutingModule],
 })
 export class YoutubeModule {}

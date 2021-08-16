@@ -1,9 +1,9 @@
 <div class="details__wrapper">
-  <button class="button details__back">&#10094;</button>
+  <button routerLink="../../" class="button details__back">&#10094;</button>
   <div class="details">
     <div class="details__image-wrapper">
       <img
-        src="{{ item?.snippet?.thumbnails?.maxres?.url }}"
+        src="{{ item?.snippet?.thumbnails?.standard?.url }}"
         alt="{{ item?.snippet?.title }}"
         class="details__image"
       />
