@@ -1,0 +1,24 @@
+<header class="header__wrapper">
+  <div class="header__top-bar">
+    <app-header-search-bar
+      [isSearchSettingsOpened]="isSearchSettingsOpened"
+      (search)="onSearch()"
+      (toggleSettingsBar)="onToggleSettingsBar()"
+    ></app-header-search-bar>
+    <app-header-profile
+      [profileName]="profileName"
+      [isAuthorized]="isAuthorized"
+      (logoutClick)="onLogoutClick()"
+    ></app-header-profile>
+  </div>
+  <div class="header__bottom-bar" *ngIf="isSearchSettingsOpened">
+    <app-header-search-params
+      (searchFilterChange)="onSearchFilterChange($event)"
+      [searchByDate]="searchByDate"
+      [searchByViews]="searchByViews"
+      [isDesc]="isDesc"
+      (byDateClick)="onByDateClick()"
+      (byViewsClick)="onByViewsClick()"
+    ></app-header-search-params>
+  </div>
+</header>

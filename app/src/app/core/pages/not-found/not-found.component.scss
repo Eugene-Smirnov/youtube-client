@@ -1,0 +1,12 @@
+.not-found {
+  margin-top: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__message {
+    color: var(--dark-grey-color);
+    width: 200px;
+    margin-left: 20px;
+  }
+}
