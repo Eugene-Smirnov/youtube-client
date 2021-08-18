@@ -1,4 +1,4 @@
-<div class="details__wrapper">
+<div *ngIf="item" class="details__wrapper">
   <button routerLink="../../" class="button details__back">&#10094;</button>
   <div class="details">
     <div class="details__image-wrapper">
@@ -20,19 +20,19 @@
       <div class="details__stat-ul">
         <div class="details__stat-li">
           <img src="../../../../assets/viewed.svg" alt="viewed" />
-          <p>{{ item?.statistics?.viewCount }}</p>
+          <p>{{ item?.statistics?.viewCount | NumberQuotesPipe }}</p>
         </div>
         <div class="details__stat-li">
           <img src="../../../../assets/liked.svg" alt="liked" />
-          <p>{{ item?.statistics?.likeCount }}</p>
+          <p>{{ item?.statistics?.likeCount | NumberQuotesPipe }}</p>
         </div>
         <div class="details__stat-li">
           <img src="../../../../assets/dislike.svg" alt="disliked" />
-          <p>{{ item?.statistics?.dislikeCount }}</p>
+          <p>{{ item?.statistics?.dislikeCount | NumberQuotesPipe }}</p>
         </div>
         <div class="details__stat-li">
           <img src="../../../../assets/comments.svg" alt="comments" />
-          <p>{{ item?.statistics?.commentCount }}</p>
+          <p>{{ item?.statistics?.commentCount | NumberQuotesPipe }}</p>
         </div>
       </div>
       <div class="time-bar {{ publicationClass }}"></div>

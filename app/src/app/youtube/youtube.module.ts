@@ -6,6 +6,8 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { SearchSortPipe } from './pipes/search-sort.pipe';
 import { DetailsPageComponent } from './pages/details-page/details-page.component';
 import { YoutubeRoutingModule } from './youtube-routing.module';
+import { NumberReducePipe } from './pipes/number-reduce.pipe';
+import { NumberQuotesPipe } from './pipes/number-quotes.pipe';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
     SearchItemComponent,
     SearchFilterPipe,
     SearchSortPipe,
+    NumberReducePipe,
+    NumberQuotesPipe,
     DetailsPageComponent,
   ],
   imports: [CommonModule, YoutubeRoutingModule],

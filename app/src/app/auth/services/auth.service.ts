@@ -9,7 +9,7 @@ import { UserModel } from '../models/user.model';
 export class AuthService {
   private user: BehaviorSubject<UserModel> = new BehaviorSubject<UserModel>(DEFAULT_USER);
 
-  items$: Observable<UserModel> = this.user.pipe();
+  user$: Observable<UserModel> = this.user.pipe();
 
   constructor() {
     this.getLogin();

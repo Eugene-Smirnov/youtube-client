@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchItemModel } from '../../models/search-item.model';
 import { SearchService } from '../../services/search.service';
 import {
@@ -18,12 +18,20 @@ export class DetailsPageComponent implements OnInit {
 
   publicationClass = '';
 
-  constructor(private route: ActivatedRoute, private searchService: SearchService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private searchService: SearchService,
+    private router: Router,
+  ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const urlID = this.route.snapshot.params.id;
-    const item = this.searchService.getItemById(urlID);
-    if (item) this.item = item;
+    this.searchService.getDescription(urlID);
+    this.searchService.descriptionItem$.subscribe((item) => {
+      if (item) {
+        this.item = item;
+      } else this.router.navigate(['/404']);
+    });
 
     if (!this.item?.snippet.publishedAt) return;
     const publicationDate = new Date(this.item.snippet.publishedAt).getTime();

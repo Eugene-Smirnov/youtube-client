@@ -38,14 +38,14 @@ export class HeaderComponent {
       this.isDesc = settings.searchParams.isDesc;
     });
 
-    authService.items$.subscribe((user) => {
+    authService.user$.subscribe((user) => {
       this.profileName = user.login;
       this.isAuthorized = user.isAuthorized;
     });
   }
 
-  onSearch(): void {
-    this.searchService.searchItems();
+  onSearch(value: string): void {
+    this.searchService.searchItems(value);
   }
 
   onToggleSettingsBar() {
