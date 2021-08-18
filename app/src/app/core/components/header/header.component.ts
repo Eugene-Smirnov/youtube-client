@@ -45,6 +45,7 @@ export class HeaderComponent {
   }
 
   onSearch(value: string): void {
+    if (value.length < 3) return;
     this.searchService.searchItems(value);
   }
 

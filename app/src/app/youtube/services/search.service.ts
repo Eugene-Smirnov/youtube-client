@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { debounceTime, map } from 'rxjs/operators';
 import { SearchItemModel } from '../models/search-item.model';
 import { SearchResponseModel } from '../models/search-response.model';
 
@@ -19,7 +19,10 @@ export class SearchService {
 
   private items: BehaviorSubject<SearchItemModel[]> = new BehaviorSubject<SearchItemModel[]>([]);
 
-  items$: Observable<SearchItemModel[]> = this.items.pipe(map((items) => items));
+  items$: Observable<SearchItemModel[]> = this.items.pipe(
+    debounceTime(300),
+    map((items) => items),
+  );
 
   private descriptionItem: BehaviorSubject<SearchItemModel | null> =
     new BehaviorSubject<SearchItemModel | null>(null);

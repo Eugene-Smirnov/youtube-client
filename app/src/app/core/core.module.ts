@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderSearchBarComponent } from './components/header/header-search-bar/header-search-bar.component';
 import { HeaderProfileComponent } from './components/header/header-profile/header-profile.component';
@@ -14,7 +15,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     HeaderSearchParamsComponent,
     NotFoundComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   exports: [HeaderComponent],
 })
 export class CoreModule {}
