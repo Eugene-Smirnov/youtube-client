@@ -28,9 +28,7 @@ export class DetailsPageComponent implements OnInit {
     const urlID = this.route.snapshot.params.id;
     this.searchService.getDescription(urlID);
     this.searchService.descriptionItem$.subscribe((item) => {
-      if (item) {
-        this.item = item;
-      } else this.router.navigate(['/404']);
+      if (item) this.item = item;
     });
 
     if (!this.item?.snippet.publishedAt) return;

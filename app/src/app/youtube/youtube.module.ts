@@ -8,6 +8,7 @@ import { DetailsPageComponent } from './pages/details-page/details-page.componen
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { NumberReducePipe } from './pipes/number-reduce.pipe';
 import { NumberQuotesPipe } from './pipes/number-quotes.pipe';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,6 @@ import { NumberQuotesPipe } from './pipes/number-quotes.pipe';
     NumberQuotesPipe,
     DetailsPageComponent,
   ],
-  imports: [CommonModule, YoutubeRoutingModule],
+  imports: [CommonModule, YoutubeRoutingModule, CoreModule],
 })
 export class YoutubeModule {}

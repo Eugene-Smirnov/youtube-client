@@ -16,6 +16,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     NotFoundComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
-  exports: [HeaderComponent],
+  exports: [HeaderComponent, NotFoundComponent],
 })
 export class CoreModule {}
