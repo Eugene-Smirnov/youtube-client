@@ -19,18 +19,21 @@ export class HeaderSearchBarComponent implements OnInit {
   searchValue = new FormControl('');
 
   searchValue$: Observable<string> = this.searchValue.valueChanges.pipe(
-    debounceTime(300),
+    debounceTime(500),
     map((value) => value),
   );
 
   constructor(private router: Router) {}
 
-  onSearchInput(inputValue: string) {
+  onSearchClick(): void {
     this.router.navigate(['/search']);
+  }
+
+  onSearchInput(inputValue: string): void {
     this.search.emit(inputValue);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.searchValue$.subscribe((value) => this.onSearchInput(value));
   }
 

@@ -2,7 +2,12 @@
   <img src="../../../assets/logo.svg" alt="youtube client" srcset="" />
 </div>
 <div class="header__search-form">
-  <input type="text" class="header__search-input" [formControl]="searchValue" />
+  <input
+    type="text"
+    class="header__search-input"
+    [formControl]="searchValue"
+    (click)="onSearchClick()"
+  />
 </div>
 <button
   class="button header__search-settings"
