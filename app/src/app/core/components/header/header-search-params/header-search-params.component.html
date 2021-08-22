@@ -1,0 +1,27 @@
+<p class="search-params__heading">Sorting by:</p>
+<ul class="search-params__ul">
+  <li
+    class="search-params__li"
+    [class.search-params__li_active]="searchByDate"
+    [class.search-params__li_desc]="isDesc"
+    (click)="byDateClick.emit()"
+  >
+    date
+  </li>
+  <li
+    class="search-params__li"
+    [class.search-params__li_active]="searchByViews"
+    [class.search-params__li_desc]="isDesc"
+    (click)="byViewsClick.emit()"
+  >
+    count of views
+  </li>
+  <li class="search-params__li">by word or sentance:</li>
+</ul>
+<input
+  type="text"
+  name="search-params__text-input"
+  id="search-params__text-input"
+  #searchFilterInput
+  (input)="searchFilterChange.emit(searchFilterInput.value)"
+/>

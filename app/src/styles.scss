@@ -1,0 +1,84 @@
+:root {
+  --white-color-data: 255, 255, 255;
+  --white-color: rgb(var(--white-color-data));
+  --dark-color-data: 79, 79, 79;
+  --dark-color: rgb(var(--dark-color-data));
+  --grey-color-data: 229, 229, 229;
+  --grey-color: rgb(var(--grey-color-data));
+  --dark-grey-color-data: 146, 146, 146;
+  --dark-grey-color: rgb(var(--dark-grey-color-data));
+  --light-grey-color-data: 239, 239, 239;
+  --light-grey-color: rgb(var(--light-grey-color-data));
+  --red-color-data: 235, 87, 87;
+  --red-color: rgb(var(--red-color-data));
+  --dark-red-color-data: 160, 65, 65;
+  --dark-red-color: rgb(var(--dark-red-color-data));
+  --green-color-data: 39, 174, 96;
+  --green-color: rgb(var(--green-color-data));
+  --blue-color-data: 47, 128, 237;
+  --blue-color: rgb(var(--blue-color-data));
+  --dark-blue-color-data: 38, 95, 170;
+  --dark-blue-color: rgb(var(--dark-blue-color-data));
+  --yellow-color-data: 235, 220, 87;
+  --yellow-color: rgb(var(--yellow-color-data));
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--dark-color);
+}
+
+app-root {
+  display: block;
+}
+
+.main {
+  margin: 0 10%;
+}
+
+.button {
+  padding: 5px;
+  color: var(--white-color);
+  background-color: var(--blue-color);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: box-shadow ease-in-out 0.2s;
+
+  &:hover {
+    box-shadow: 0 0 5px rgba(var(--blue-color-data), 0.8);
+  }
+
+  &:active {
+    box-shadow: 0 0 5px rgba(var(--dark-color-data), 1);
+  }
+
+  &_active {
+    box-shadow: 0 0 5px rgba(var(--blue-color-data), 1);
+  }
+}
+
+.heading {
+  color: var(--dark-color);
+  font-size: 18px;
+}
+
+.time-bar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--yellow-color);
+
+  &_week {
+    background-color: var(--blue-color);
+  }
+
+  &_month {
+    background-color: var(--green-color);
+  }
+
+  &_half-year {
+    background-color: var(--red-color);
+  }
+}
