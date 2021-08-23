@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
@@ -9,6 +10,7 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
 import { NumberReducePipe } from './pipes/number-reduce.pipe';
 import { NumberQuotesPipe } from './pipes/number-quotes.pipe';
 import { CoreModule } from '../core/core.module';
+import * as fromYoutubeApi from '../redux/reducers/youtube-api.reducer';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,11 @@ import { CoreModule } from '../core/core.module';
     NumberQuotesPipe,
     DetailsPageComponent,
   ],
-  imports: [CommonModule, YoutubeRoutingModule, CoreModule],
+  imports: [
+    CommonModule,
+    StoreModule.forFeature(fromYoutubeApi.youtubeApiFeatureKey, fromYoutubeApi.youtubeApiReducer),
+    YoutubeRoutingModule,
+    CoreModule,
+  ],
 })
 export class YoutubeModule {}

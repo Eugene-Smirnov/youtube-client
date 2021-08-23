@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { youtubeSearchItems } from 'src/app/redux/actions/youtube-api.actions';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { SearchSettingsService } from '../../services/search-settings.service';
 import { SearchService } from '../../../youtube/services/search.service';
 
@@ -9,7 +11,7 @@ import { SearchService } from '../../../youtube/services/search.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   profileName = 'Your Name';
 
   isAuthorized = false;
@@ -25,11 +27,14 @@ export class HeaderComponent {
   isDesc = false;
 
   constructor(
+    private router: Router,
+    private store: Store,
     private searchService: SearchService,
     private searchSettingsService: SearchSettingsService,
     private authService: AuthService,
-    private router: Router,
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.searchSettingsService.settings$.subscribe((settings) => {
       this.isSearchSettingsOpened = settings.isOpened;
       this.filterValue = settings.filterValue;
@@ -38,7 +43,7 @@ export class HeaderComponent {
       this.isDesc = settings.searchParams.isDesc;
     });
 
-    authService.user$.subscribe((user) => {
+    this.authService.user$.subscribe((user) => {
       this.profileName = user.login;
       this.isAuthorized = user.isAuthorized;
     });
@@ -46,7 +51,9 @@ export class HeaderComponent {
 
   onSearch(value: string): void {
     if (value.length < 3) return;
-    this.searchService.searchItems(value);
+    this.searchService.searchItems(value).subscribe((res) => {
+      this.store.dispatch(youtubeSearchItems({ searchItems: res }));
+    });
   }
 
   onToggleSettingsBar() {

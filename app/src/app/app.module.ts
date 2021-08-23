@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +11,14 @@ import { SearchParamInterceptor } from './youtube/interceptors/search.intercepto
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, AppRoutingModule, CoreModule],
+  imports: [
+    BrowserModule,
+    StoreModule.forRoot({}),
+    HttpClientModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    CoreModule,
+  ],
   providers: [
     SearchService,
     {

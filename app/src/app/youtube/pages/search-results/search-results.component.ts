@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { SearchParamsModel } from 'src/app/core/models/search-params.model';
 import { SearchSettingsService } from 'src/app/core/services/search-settings.service';
-import { SearchItemModel } from '../../models/search-item.model';
-import { SearchService } from '../../services/search.service';
+import { selectYoutubeApiItems } from 'src/app/redux/selectors/youtube-api.selectors';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent {
-  public searchResponse: SearchItemModel[] = [];
+export class SearchResultsComponent implements OnInit {
+  public searchResponse$ = this.store.select(selectYoutubeApiItems);
 
   searchParams: SearchParamsModel = {
     sortBy: '',
@@ -19,13 +19,9 @@ export class SearchResultsComponent {
 
   filterValue = '';
 
-  constructor(
-    private searchService: SearchService,
-    private searchSettingsService: SearchSettingsService,
-  ) {
-    this.searchService.items$.subscribe((items) => {
-      this.searchResponse = [...items];
-    });
+  constructor(private searchSettingsService: SearchSettingsService, private store: Store) {}
+
+  ngOnInit() {
     this.searchSettingsService.settings$.subscribe((settings) => {
       this.searchParams = settings.searchParams;
       this.filterValue = settings.filterValue;

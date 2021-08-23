@@ -6,7 +6,7 @@ import { SearchItemModel } from '../models/search-item.model';
   name: 'SearchSortPipe',
 })
 export class SearchSortPipe implements PipeTransform {
-  transform(items: SearchItemModel[], searchParams: SearchParamsModel): SearchItemModel[] {
+  transform(items: SearchItemModel[] | null, searchParams: SearchParamsModel): SearchItemModel[] {
     if (!items) return [];
     if (searchParams.sortBy === 'byDate') this.sortByDate(items, searchParams.isDesc);
     if (searchParams.sortBy === 'byViews') this.sortByViews(items, searchParams.isDesc);

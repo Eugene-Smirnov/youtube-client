@@ -1,7 +1,8 @@
-<div class="search-results" *ngIf="searchResponse">
+<div class="search-results">
   <app-search-item
     *ngFor="
-      let searchItem of searchResponse
+      let searchItem of searchResponse$
+        | async
         | SearchFilterPipe: filterValue
         | SearchSortPipe: searchParams
     "
