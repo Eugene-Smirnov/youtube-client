@@ -12,9 +12,13 @@ import { debounceTime, map } from 'rxjs/operators';
 export class HeaderSearchBarComponent implements OnInit {
   @Input() isSearchSettingsOpened: boolean = false;
 
+  @Input() isSearchNewOpened: boolean = false;
+
   @Output() search = new EventEmitter<string>();
 
   @Output() toggleSettingsBar = new EventEmitter();
+
+  @Output() toggleNew = new EventEmitter();
 
   searchValue = new FormControl('');
 
@@ -39,5 +43,9 @@ export class HeaderSearchBarComponent implements OnInit {
 
   onSettingsButtonClick(): void {
     this.toggleSettingsBar.emit();
+  }
+
+  onNewButtonClick(): void {
+    this.toggleNew.emit();
   }
 }

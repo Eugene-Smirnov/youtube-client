@@ -2,8 +2,10 @@
   <div class="header__top-bar">
     <app-header-search-bar
       [isSearchSettingsOpened]="isSearchSettingsOpened"
+      [isSearchNewOpened]="isSearchNewOpened"
       (search)="onSearch($event)"
       (toggleSettingsBar)="onToggleSettingsBar()"
+      (toggleNew)="onToggleNew()"
     ></app-header-search-bar>
     <app-header-profile
       [profileName]="profileName"

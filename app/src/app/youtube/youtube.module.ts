@@ -11,6 +11,7 @@ import { NumberReducePipe } from './pipes/number-reduce.pipe';
 import { NumberQuotesPipe } from './pipes/number-quotes.pipe';
 import { CoreModule } from '../core/core.module';
 import * as fromYoutubeApi from '../redux/reducers/youtube-api.reducer';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import * as fromYoutubeApi from '../redux/reducers/youtube-api.reducer';
     NumberReducePipe,
     NumberQuotesPipe,
     DetailsPageComponent,
+    AdminPageComponent,
   ],
   imports: [
     CommonModule,

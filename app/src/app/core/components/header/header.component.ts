@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { youtubeSearchItems } from 'src/app/redux/actions/youtube-api.actions';
@@ -18,6 +19,8 @@ export class HeaderComponent implements OnInit {
 
   isSearchSettingsOpened = false;
 
+  isSearchNewOpened = false;
+
   filterValue = '';
 
   searchByDate = false;
@@ -29,6 +32,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private store: Store,
+    private location: Location,
     private searchService: SearchService,
     private searchSettingsService: SearchSettingsService,
     private authService: AuthService,
@@ -47,6 +51,17 @@ export class HeaderComponent implements OnInit {
       this.profileName = user.login;
       this.isAuthorized = user.isAuthorized;
     });
+
+    this.location.onUrlChange((url) => {
+      this.isSearchNewOpened = url.includes('search/admin');
+    });
+
+    // this.route.url.subscribe((url) => {
+    //   const isAdminPage = url;
+    //   console.log(isAdminPage);
+    //   if (isAdminPage) this.isSearchNewOpened = true;
+    //   else this.isSearchNewOpened = false;
+    // });
   }
 
   onSearch(value: string): void {
@@ -58,6 +73,10 @@ export class HeaderComponent implements OnInit {
 
   onToggleSettingsBar() {
     this.searchSettingsService.toggleIsOpened();
+  }
+
+  onToggleNew() {
+    this.router.navigate(['/search/admin']);
   }
 
   onSearchFilterChange(inputValue: string) {
