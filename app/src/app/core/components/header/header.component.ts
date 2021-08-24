@@ -55,13 +55,6 @@ export class HeaderComponent implements OnInit {
     this.location.onUrlChange((url) => {
       this.isSearchNewOpened = url.includes('search/admin');
     });
-
-    // this.route.url.subscribe((url) => {
-    //   const isAdminPage = url;
-    //   console.log(isAdminPage);
-    //   if (isAdminPage) this.isSearchNewOpened = true;
-    //   else this.isSearchNewOpened = false;
-    // });
   }
 
   onSearch(value: string): void {

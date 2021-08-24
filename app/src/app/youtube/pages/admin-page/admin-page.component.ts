@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { addCustomItem } from 'src/app/redux/actions/custom-items.actions';
+import { CustomItemsService } from '../../services/custom-items.service';
 
 @Component({
   selector: 'app-admin-page',
@@ -9,11 +12,17 @@ import { Store } from '@ngrx/store';
 export class AdminPageComponent {
   isClicked = false;
 
-  constructor(private store: Store) {}
+  constructor(
+    private store: Store,
+    private customItemsService: CustomItemsService,
+    private router: Router,
+  ) {}
 
-  onSubmit() {
+  onSubmit(title: string, description: string, imageLink: string, videoLink: string) {
     this.isClicked = true;
+    if (!title || !description || !imageLink || !videoLink) return;
+    const newItem = this.customItemsService.createItem(title, description, imageLink, videoLink);
+    this.store.dispatch(addCustomItem(newItem));
+    this.router.navigate(['/search']);
   }
-
-  // ngOnInit(): void {}
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { SearchParamsModel } from 'src/app/core/models/search-params.model';
 import { SearchSettingsService } from 'src/app/core/services/search-settings.service';
+import { selectCustomItems } from 'src/app/redux/selectors/custom-items.selectors';
 import { selectYoutubeApiItems } from 'src/app/redux/selectors/youtube-api.selectors';
 
 @Component({
@@ -11,6 +12,8 @@ import { selectYoutubeApiItems } from 'src/app/redux/selectors/youtube-api.selec
 })
 export class SearchResultsComponent implements OnInit {
   public searchResponse$ = this.store.select(selectYoutubeApiItems);
+
+  public customItems$ = this.store.select(selectCustomItems);
 
   searchParams: SearchParamsModel = {
     sortBy: '',

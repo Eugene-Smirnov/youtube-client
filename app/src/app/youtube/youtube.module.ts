@@ -11,6 +11,7 @@ import { NumberReducePipe } from './pipes/number-reduce.pipe';
 import { NumberQuotesPipe } from './pipes/number-quotes.pipe';
 import { CoreModule } from '../core/core.module';
 import * as fromYoutubeApi from '../redux/reducers/youtube-api.reducer';
+import * as fromCustomItems from '../redux/reducers/custom-items.reducer';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 @NgModule({
@@ -27,6 +28,10 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
   imports: [
     CommonModule,
     StoreModule.forFeature(fromYoutubeApi.youtubeApiFeatureKey, fromYoutubeApi.youtubeApiReducer),
+    StoreModule.forFeature(
+      fromCustomItems.customItemsFeatureKey,
+      fromCustomItems.customItemsReducer,
+    ),
     YoutubeRoutingModule,
     CoreModule,
   ],
