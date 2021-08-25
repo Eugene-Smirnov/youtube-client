@@ -1,0 +1,24 @@
+<img src="{{ searchItem?.snippet?.thumbnails?.medium?.url }}" alt="" class="search-item__preview" />
+<div class="search-item__info">
+  <div class="search-item__li">
+    <img src="../../../assets/viewed.svg" alt="viewed" />
+    <p>{{ searchItem?.statistics?.viewCount | NumberReducePipe }}</p>
+  </div>
+  <div class="search-item__li">
+    <img src="../../../assets/liked.svg" alt="liked" />
+    <p>{{ searchItem?.statistics?.likeCount | NumberReducePipe }}</p>
+  </div>
+  <div class="search-item__li">
+    <img src="../../../assets/dislike.svg" alt="disliked" />
+    <p>{{ searchItem?.statistics?.dislikeCount | NumberReducePipe }}</p>
+  </div>
+  <div class="search-item__li">
+    <img src="../../../assets/comments.svg" alt="comments" />
+    <p>{{ searchItem?.statistics?.commentCount | NumberReducePipe }}</p>
+  </div>
+</div>
+<h3 class="search-item__heading">{{ searchItem?.snippet?.title }}</h3>
+<button class="button search-item__button" routerLink="./details/{{ searchItem?.id }}">
+  more...
+</button>
+<div class="time-bar {{ publicationClass }}"></div>

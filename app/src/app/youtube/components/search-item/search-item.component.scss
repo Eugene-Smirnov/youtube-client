@@ -1,0 +1,43 @@
+.search-item {
+  &__preview {
+    height: 120px;
+    width: 230px;
+    margin: 14px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: default;
+  }
+
+  &__li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    p {
+      margin-block: 0;
+      margin: 0 5px;
+    }
+  }
+
+  &__heading {
+    max-width: 230px;
+    margin-top: auto;
+
+    text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+
+    cursor: default;
+  }
+
+  &__button {
+    font-size: 14px;
+    padding: 10px 30px;
+    margin: auto 0 20px 0;
+  }
+}

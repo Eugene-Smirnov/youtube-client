@@ -1,0 +1,23 @@
+<div class="header__logo">
+  <img src="../../../assets/logo.svg" alt="youtube client" srcset="" />
+</div>
+<div class="header__search-form">
+  <input
+    type="text"
+    class="header__search-input"
+    [formControl]="searchValue"
+    (click)="onSearchClick()"
+  />
+</div>
+<button
+  class="button header__search-settings"
+  [class.button_active]="isSearchSettingsOpened"
+  (click)="onSettingsButtonClick()"
+></button>
+<button
+  class="button header__search-new"
+  [class.button_active]="isSearchNewOpened"
+  (click)="onNewButtonClick()"
+>
+  +
+</button>

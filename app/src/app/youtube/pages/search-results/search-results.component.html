@@ -1,0 +1,10 @@
+<div class="search-results">
+  <app-search-item
+    *ngFor="
+      let searchItem of searchResponse
+        | SearchFilterPipe: filterValue
+        | SearchSortPipe: searchParams
+    "
+    [searchItem]="searchItem"
+  ></app-search-item>
+</div>

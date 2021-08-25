@@ -1,0 +1,25 @@
+<div class="admin__wrapper">
+  <div class="admin">
+    <h2 class="heading admin__heading">Create new card</h2>
+    <label class="admin__input-label" for="login">Title</label>
+    <input class="admin__input" type="text" name="title" id="title" #title />
+    <label class="admin__input-label" for="login">Description</label>
+    <input class="admin__input" type="text" name="description" id="description" #description />
+    <label class="admin__input-label" for="login">Image link</label>
+    <input class="admin__input" type="text" name="img" id="img" #img />
+    <label class="admin__input-label" for="login">Video link</label>
+    <input class="admin__input" type="text" name="video" id="video" #video />
+    <h4
+      class="admin__info"
+      *ngIf="isClicked && (!title.value || !description.value || !img.value || !video.value)"
+    >
+      All the fields must be filled
+    </h4>
+    <button
+      (click)="onSubmit(title.value, description.value, img.value, video.value)"
+      class="button admin__button"
+    >
+      create card
+    </button>
+  </div>
+</div>
