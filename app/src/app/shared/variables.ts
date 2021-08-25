@@ -13,12 +13,21 @@ export const DEFAULT_USER = {
   login: 'Your Name',
   isAuthorized: false,
 };
-// 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyDd5ivcNnIbI6u7F9NcjVwP1vsmc3H_9J4&part=snippet&maxResults=10&q=';
-// const VIDEOLIST_REQ_URL =
-//   'https://www.googleapis.com/youtube/v3/videos?key=AIzaSyDd5ivcNnIbI6u7F9NcjVwP1vsmc3H_9J4&part=snippet,statistics&id=';
 
 export const LOCALSTORAGE_AUTH_TOKEN_KEY = 'eugene-smirnov-youtube-client-auth';
 
 export const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/';
 export const SEARCH_REQ_URL = `${YOUTUBE_API_URL}search`;
 export const VIDEOS_REQ_URL = `${YOUTUBE_API_URL}videos`;
+
+export function parseVideoId(videoLink: string): string {
+  let index = 0;
+  if (videoLink.includes('https://youtu.be/')) {
+    index = 'https://youtu.be/'.length;
+  }
+  if (videoLink.includes('v=')) {
+    index = videoLink.indexOf('v=') + 2;
+  }
+  const id = videoLink.slice(index, index + 11);
+  return id;
+}

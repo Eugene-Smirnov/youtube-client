@@ -39,3 +39,58 @@ interface ThumbnailModel {
   width: number | string;
   height: number | string;
 }
+
+export const DefaultSearchItem: SearchItemModel = {
+  kind: 'youtube#video',
+  etag: '',
+  id: '',
+  snippet: {
+    publishedAt: '',
+    channelId: '',
+    title: '',
+    description: '',
+    thumbnails: {
+      default: {
+        url: '',
+        width: 120,
+        height: 90,
+      },
+      medium: {
+        url: '',
+        width: 320,
+        height: 180,
+      },
+      high: {
+        url: '',
+        width: 480,
+        height: 360,
+      },
+      standard: {
+        url: '',
+        width: 640,
+        height: 480,
+      },
+      maxres: {
+        url: '',
+        width: 1280,
+        height: 720,
+      },
+    },
+    channelTitle: '',
+    tags: [],
+    categoryId: '',
+    liveBroadcastContent: '',
+    localized: {
+      title: '',
+      description: '',
+    },
+    defaultAudioLanguage: '',
+  },
+  statistics: {
+    viewCount: '',
+    likeCount: '',
+    dislikeCount: '',
+    favoriteCount: '',
+    commentCount: '',
+  },
+};

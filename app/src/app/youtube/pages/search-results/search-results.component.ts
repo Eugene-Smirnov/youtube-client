@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { SearchParamsModel } from 'src/app/core/models/search-params.model';
 import { SearchSettingsService } from 'src/app/core/services/search-settings.service';
-import { selectCustomItems } from 'src/app/redux/selectors/custom-items.selectors';
+import { selectCustomToSearchItems } from 'src/app/redux/selectors/custom-items.selectors';
 import { selectYoutubeApiItems } from 'src/app/redux/selectors/youtube-api.selectors';
+import { SearchItemModel } from '../../models/search-item.model';
 
 @Component({
   selector: 'app-search-results',
@@ -11,9 +12,13 @@ import { selectYoutubeApiItems } from 'src/app/redux/selectors/youtube-api.selec
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-  public searchResponse$ = this.store.select(selectYoutubeApiItems);
+  private youtubeApiItems$ = this.store.select(selectYoutubeApiItems);
 
-  public customItems$ = this.store.select(selectCustomItems);
+  private customItems$ = this.store.select(selectCustomToSearchItems);
+
+  public customItems: SearchItemModel[] = [];
+
+  public searchResponse: SearchItemModel[] = [];
 
   searchParams: SearchParamsModel = {
     sortBy: '',
@@ -28,6 +33,13 @@ export class SearchResultsComponent implements OnInit {
     this.searchSettingsService.settings$.subscribe((settings) => {
       this.searchParams = settings.searchParams;
       this.filterValue = settings.filterValue;
+    });
+
+    this.customItems$.subscribe((items) => {
+      this.customItems = [...items];
+    });
+    this.youtubeApiItems$.subscribe((items) => {
+      this.searchResponse = [...this.customItems, ...items];
     });
   }
 }
